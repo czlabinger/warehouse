@@ -15,13 +15,20 @@ public class WarehouseData {
 	private String country;
 	private String plz;
 
-	private ProductData productData;
+	private ArrayList<Product> productData;
 
 	/**
 	 * Constructor
 	 */
 	public WarehouseData() {
-		this.productData = new ProductData();
+
+		int r = new Random().nextInt(6) + 4; 
+
+		productData = new ArrayList<Product>(r);
+
+		for(int i = 0; i < r; i++) {
+			productData.add(new Product());
+		}
 
 		this.timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date());
 
@@ -31,11 +38,11 @@ public class WarehouseData {
 	 * Setter and Getter Methods
 	 */
 
-	public ProductData getProductData() {
+	public ArrayList<Product> getProductData() {
 		return this.productData;
 	}
 
-	public void setProductData(ProductData productData) {
+	public void setProductData(ArrayList<Product> productData) {
 		this.productData = productData;
 	}
 
